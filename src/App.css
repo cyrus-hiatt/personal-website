@@ -1,38 +1,306 @@
-.App {
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("fonts/HelveticaNeueCyr-Black-Italic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("fonts/HelveticaNeueCyr-Bold-Italic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("fonts/HelveticaNeueCyr-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("fonts/HelveticaNeueCyr-Heavy-Italic.ttf") format("truetype");
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("fonts/HelveticaNeueCyr-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("fonts/HelveticaNeueCyr-Light-Italic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("fonts/HelveticaNeueCyr-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("fonts/HelveticaNeueCyr-Medium-Italic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("fonts/HelveticaNeueCyr-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("fonts/HelveticaNeueCyr-Roman.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("fonts/HelveticaNeueCyr-Thin-Italic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("fonts/HelveticaNeueCyr-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("fonts/HelveticaNeueCyr-UltraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+:root {
+  --primary-color: #b00e2f;
+  --secondary-color: #fee5ca;
+  --neutral-bg: #f3f3f3;
+  --text-color: #333333;
+  --secondary-accent: #1c1c1c;
+  --highlight-accent: #ffa726;
+  --subtle-accent: #cccccc;
+  --font-family: "HelveticaNeueCyr", sans-serif;
+}
+
+/* General Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background-color: var(--neutral-bg);
+  line-height: 1.6;
+  padding: 0 10px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h2 {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Header */
+header {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 15px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  gap: 20px;
+}
+
+header nav ul li a {
+  color: #fff;
+  font-weight: 500;
+  padding: 5px 10px;
+  transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+  color: var(--highlight-accent);
+}
+
+/* Section Styling */
+.section {
+  padding: 60px 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#home {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 80px 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#home h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#home p {
+  font-size: 1.2em;
+}
+
+/* Projects Section */
+#projects {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+#projects h2 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.project-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.project {
+  background: #fff;
+  border: 1px solid var(--subtle-accent);
+  padding: 20px;
+  width: 280px;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.project:hover {
+  transform: translateY(-5px);
+}
+
+.project h3 {
+  color: var(--primary-color);
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.project img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.project a {
+  display: inline-block;
+  margin: 5px 5px 0;
+  padding: 8px 12px;
+  color: #fff;
+  background-color: var(--highlight-accent);
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.project a:hover {
+  background-color: var(--primary-color);
+}
+
+/* Skills Section */
+#skills {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.skills-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.skills-list li {
+  padding: 8px 12px;
+  background: var(--secondary-accent);
+  color: #fff;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+/* Experience Section */
+
+#experience {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+/* Contact Section */
+#contact {
+  background-color: var(--secondary-accent);
+  color: #fff;
+}
+
+#contact p {
+  margin-bottom: 15px;
+}
+
+#contact ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+}
+
+#contact ul li a {
+  color: var(--primary-color);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+#contact ul li a:hover {
+  color: var(--highlight-accent);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .project-container {
+    flex-direction: column;
+    align-items: center;
   }
-  to {
-    transform: rotate(360deg);
+
+  header nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .skills-list {
+    flex-direction: column;
+    gap: 10px;
   }
 }

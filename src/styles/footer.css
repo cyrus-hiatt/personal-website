@@ -1,0 +1,60 @@
+:root {
+  --primary-color: #b00e2f;
+  --secondary-color: #fee5ca;
+  --neutral-bg: #f3f3f3;
+  --text-color: #333333;
+  --secondary-accent: #1c1c1c;
+  --highlight-accent: #ffa726;
+  --subtle-accent: #cccccc;
+  --font-family: "HelveticaNeueCyr", sans-serif;
+}
+
+body.dark-mode {
+  --primary-color: #1c1c1c;
+  --secondary-color: #e2c3a5;
+  --neutral-bg: #333333;
+  --text-color: #ffffff;
+  --secondary-accent: #444444;
+  --highlight-accent: #ff7043;
+  --subtle-accent: #666666;
+}
+
+#contact {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+  width: 100%;
+  padding: 20px;
+  margin: 30px auto 0 auto;
+}
+
+#contact p {
+  margin-bottom: 15px;
+}
+
+#contact ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+}
+
+#contact ul li a {
+  color: var(--primary-color);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+#contact ul li a:hover {
+  color: var(--highlight-accent);
+}
+
+#contact .dark-mode .social-icon {
+  filter: none;
+}
+
+.social-icon {
+  filter: invert(31%) sepia(100%) saturate(4300%) hue-rotate(346deg)
+    brightness(90%) contrast(90%);
+}

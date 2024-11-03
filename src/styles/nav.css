@@ -1,0 +1,172 @@
+:root {
+  --primary-color: #b00e2f;
+  --secondary-color: #fee5ca;
+  --neutral-bg: #f3f3f3;
+  --text-color: #333333;
+  --secondary-accent: #1c1c1c;
+  --highlight-accent: #ffa726;
+  --subtle-accent: #cccccc;
+  --overlay: hsla(31, 96%, 89%, 0.75);
+  --font-family: "HelveticaNeueCyr", sans-serif;
+}
+
+body.dark-mode {
+  --primary-color: #1c1c1c;
+  --secondary-color: #e2c3a5;
+  --neutral-bg: #333333;
+  --text-color: #ffffff;
+  --secondary-accent: #444444;
+  --highlight-accent: #ff7043;
+  --subtle-accent: #666666;
+  --overlay: hsla(0, 0%, 10%, 0.75);
+}
+
+header {
+  position: relative;
+  background-color: var(--primary-color); /* Dark background for contrast */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem;
+}
+
+.overlay {
+  position: fixed; /* Make it cover the entire viewport */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--overlay); /* Your specified color */
+  z-index: 1; /* Ensure it sits below the menu */
+  display: none; /* Hide overlay by default */
+}
+
+.nav-menu.open ~ .overlay {
+  display: block; /* Show overlay when menu is open */
+}
+
+.hamburger {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin: 10px; /* Adjust as needed */
+}
+
+.line {
+  height: 3px;
+  background-color: var(--secondary-color); /* Set lines to white */
+  margin: 3px 0;
+  transition: all 1s ease; /* Animation for the lines */
+}
+
+.nav-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  max-width: 450px;
+  width: 100%;
+  background-color: var(--primary-color);
+  z-index: 2;
+  border-bottom-left-radius: 25px;
+  transform: scale(0);
+  transform-origin: top right;
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.nav-menu.open {
+  display: flex; /* Ensure the menu is displayed */
+  opacity: 1; /* Make the menu visible */
+  transform: scale(1); /* Scale up to full size */
+}
+
+.nav-menu ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.nav-menu li {
+  margin: 10px 0;
+}
+
+.nav-container {
+  padding: 30px 0;
+}
+.nav-menu a {
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  font-size: 43px;
+  line-height: 43px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 10px 20px; /* Add padding for clickable area */
+  transform: translate3d(0px, 110%, 0px); /* Initially move down */
+  opacity: 0; /* Initially hidden */
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth transition */
+}
+.nav-menu.open li a {
+  transform: translate3d(0px, 0%, 0px); /* Move to original position */
+  opacity: 1; /* Make visible */
+}
+
+.nav-menu a:hover {
+  color: var(--secondary-color);
+}
+
+.language-switch {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space between language buttons and the close button */
+  align-items: center; /* Align items vertically in the center */
+  padding: 0 20px; /* Optional: space below the language switch */
+}
+
+.lang-buttons {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--secondary-color);
+}
+
+.lang-buttons button {
+  background: none;
+  border: none; /* No border for buttons */
+  cursor: pointer; /* Pointer cursor on hover */
+  padding: 13px;
+  color: var(--secondary-color); /* Default text color */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.lang-buttons button:not(.active):hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.lang-buttons button.active {
+  background-color: var(--secondary-color); /* Active background color */
+  color: var(--primary-color); /* Active text color */
+}
+
+.close-button {
+  background: none; /* No background for the close button */
+  border: 1px solid var(--secondary-color); /* No border */
+  color: #fff; /* Color for close button (optional) */
+  padding: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+  .nav-menu a {
+    font-size: 23px;
+    line-height: 23px;
+  }
+}

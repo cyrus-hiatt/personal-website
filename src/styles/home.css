@@ -1,0 +1,278 @@
+:root {
+  --primary-color: #b00e2f;
+  --secondary-color: #fee5ca;
+  --neutral-bg: #f3f3f3;
+  --text-color: #333333;
+  --secondary-accent: #1c1c1c;
+  --highlight-accent: #ffa726;
+  --subtle-accent: #cccccc;
+  --font-family: "HelveticaNeueCyr", sans-serif;
+}
+
+body.dark-mode {
+  --primary-color: #1c1c1c;
+  --secondary-color: #e2c3a5;
+  --neutral-bg: #333333;
+  --text-color: #ffffff;
+  --secondary-accent: #444444;
+  --highlight-accent: #ff7043;
+  --subtle-accent: #666666;
+}
+
+#home {
+  background: var(--primary-color);
+  color: #fff;
+  text-align: left;
+}
+
+#home h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 80px;
+  font-weight: 900;
+  color: #fff;
+}
+
+#home p {
+  color: var(--secondary-color);
+  font-size: 20px;
+}
+
+#home .button-red {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+#about {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.section {
+  text-align: center;
+}
+
+.intro-container {
+  padding: 60px;
+  margin-bottom: 80px;
+}
+
+#about {
+  padding: 60px;
+  border-radius: 25px;
+}
+
+#about h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 60px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+#tech h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.about-row {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  gap: 25px;
+}
+
+.intro-row {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.about-text {
+  text-align: left;
+  flex: 1 1 60%;
+}
+
+.intro-text {
+  text-align: left;
+  flex: 1;
+}
+
+.home-pic {
+  max-width: 331px;
+  width: 100%;
+  border-radius: 25px;
+}
+
+.profile-pic {
+  max-width: 250px;
+  height: auto;
+  width: 100%;
+  border-radius: 50%;
+  flex: 1 1 40%;
+}
+
+#about p {
+  color: var(--primary-color);
+  margin: 20px 0;
+}
+
+.cloud-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow-x: hidden;
+}
+
+.cloud-small {
+  position: absolute;
+  width: 19.16vw;
+  animation-name: small_clouds;
+  animation-duration: 14s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+}
+
+.cloud-large {
+  position: absolute;
+  bottom: 15dvh;
+  width: 31vw;
+  animation-name: small_clouds;
+  animation-delay: 1.5s;
+  animation-duration: 14.25s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+  transform: translate(100%);
+}
+
+.cloud-small.f {
+  top: 26.6%;
+}
+
+.cloud-small.s {
+  top: 19%;
+  animation-delay: 4s;
+}
+
+#tech {
+  padding: 60px;
+}
+
+.tech-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.tech-row {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.tech-text {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: normal;
+  margin-top: 10px;
+}
+
+@keyframes small_clouds {
+  0% {
+    transform: translateX(100vw);
+  }
+
+  to {
+    transform: translateX(-19.16vw);
+  }
+}
+
+@media (max-width: 768px) {
+  #home h1 {
+    font-size: 40px;
+  }
+
+  #about h2 {
+    font-size: 30px;
+  }
+
+  #tech h3 {
+    font-size: 20px;
+  }
+
+  #home p {
+    font-size: 18px;
+  }
+
+  #home p {
+    font-size: 16px;
+  }
+
+  #about p {
+    margin: 10px 0;
+  }
+
+  .intro-container {
+    padding: 30px;
+    margin-bottom: 30px;
+  }
+
+  .about-container {
+    margin-bottom: 30px;
+  }
+
+  #about {
+    padding: 30px;
+  }
+
+  .intro-row {
+    gap: 40px;
+  }
+
+  .about-row,
+  .intro-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-text {
+    flex: 1 1 auto;
+    max-width: 100%;
+  }
+
+  .profile-pic {
+    flex: 1 1 auto;
+    max-width: 200px;
+  }
+
+  .tech-row {
+    gap: 40px;
+  }
+}
