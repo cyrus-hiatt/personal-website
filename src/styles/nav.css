@@ -1,29 +1,29 @@
 :root {
   --primary-color: #b00e2f;
-  --secondary-color: #fee5ca;
+  --secondary-color: #243447;
+  --tertiary-color: #fee5ca;
   --neutral-bg: #f3f3f3;
   --text-color: #333333;
   --secondary-accent: #1c1c1c;
   --highlight-accent: #ffa726;
   --subtle-accent: #cccccc;
-  --overlay: hsla(31, 96%, 89%, 0.75);
   --font-family: "HelveticaNeueCyr", sans-serif;
 }
 
 body.dark-mode {
   --primary-color: #1c1c1c;
-  --secondary-color: #e2c3a5;
+  --secondary-color: #1d2d3a;
+  --tertiary-color: #e2c3a5;
   --neutral-bg: #333333;
   --text-color: #ffffff;
   --secondary-accent: #444444;
   --highlight-accent: #ff7043;
   --subtle-accent: #666666;
-  --overlay: hsla(0, 0%, 10%, 0.75);
 }
 
 header {
   position: relative;
-  background-color: var(--primary-color); /* Dark background for contrast */
+  background-color: var(--primary-color);
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -31,18 +31,18 @@ header {
 }
 
 .overlay {
-  position: fixed; /* Make it cover the entire viewport */
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--overlay); /* Your specified color */
-  z-index: 1; /* Ensure it sits below the menu */
-  display: none; /* Hide overlay by default */
+  background-color: var(--overlay);
+  z-index: 1;
+  display: none;
 }
 
 .nav-menu.open ~ .overlay {
-  display: block; /* Show overlay when menu is open */
+  display: block;
 }
 
 .hamburger {
@@ -52,14 +52,18 @@ header {
   justify-content: center;
   width: 30px;
   height: 30px;
-  margin: 10px; /* Adjust as needed */
+  margin: 10px;
 }
 
 .line {
   height: 3px;
-  background-color: var(--secondary-color); /* Set lines to white */
+  background-color: var(--secondary-color);
   margin: 3px 0;
-  transition: all 1s ease; /* Animation for the lines */
+  transition: all 1s ease;
+}
+
+.dark-mode .line {
+  background-color: #fff;
 }
 
 .nav-menu {
@@ -78,9 +82,9 @@ header {
 }
 
 .nav-menu.open {
-  display: flex; /* Ensure the menu is displayed */
-  opacity: 1; /* Make the menu visible */
-  transform: scale(1); /* Scale up to full size */
+  display: flex;
+  opacity: 1;
+  transform: scale(1);
 }
 
 .nav-menu ul {
@@ -104,14 +108,14 @@ header {
   font-weight: 900;
   text-transform: uppercase;
   color: #fff;
-  padding: 10px 20px; /* Add padding for clickable area */
-  transform: translate3d(0px, 110%, 0px); /* Initially move down */
-  opacity: 0; /* Initially hidden */
-  transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth transition */
+  padding: 10px 20px;
+  transform: translate3d(0px, 110%, 0px);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 .nav-menu.open li a {
-  transform: translate3d(0px, 0%, 0px); /* Move to original position */
-  opacity: 1; /* Make visible */
+  transform: translate3d(0px, 0%, 0px);
+  opacity: 1;
 }
 
 .nav-menu a:hover {
@@ -119,41 +123,41 @@ header {
 }
 
 .language-switch {
-  display: flex; /* Use flexbox for layout */
-  justify-content: space-between; /* Space between language buttons and the close button */
-  align-items: center; /* Align items vertically in the center */
-  padding: 0 20px; /* Optional: space below the language switch */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
 
 .lang-buttons {
   display: flex;
   align-items: center;
-  border: 1px solid var(--secondary-color);
+  border: 1px solid var(--tertiary-color);
 }
 
 .lang-buttons button {
   background: none;
-  border: none; /* No border for buttons */
-  cursor: pointer; /* Pointer cursor on hover */
+  border: none;
+  cursor: pointer;
   padding: 13px;
-  color: var(--secondary-color); /* Default text color */
+  color: #fff;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .lang-buttons button:not(.active):hover {
-  background-color: var(--secondary-color);
+  background-color: var(--tertiary-color);
   color: var(--primary-color);
 }
 
 .lang-buttons button.active {
-  background-color: var(--secondary-color); /* Active background color */
-  color: var(--primary-color); /* Active text color */
+  background-color: var(--tertiary-color);
+  color: var(--primary-color);
 }
 
 .close-button {
-  background: none; /* No background for the close button */
-  border: 1px solid var(--secondary-color); /* No border */
-  color: #fff; /* Color for close button (optional) */
+  background: none;
+  border: 1px solid var(--tertiary-color);
+  color: #fff;
   padding: 13px;
   font-weight: 500;
   cursor: pointer;
@@ -161,7 +165,7 @@ header {
 
 .close-button:hover {
   color: var(--primary-color);
-  background-color: var(--secondary-color);
+  background-color: var(--tertiary-color);
 }
 
 @media (max-width: 768px) {

@@ -1,6 +1,7 @@
 :root {
   --primary-color: #b00e2f;
-  --secondary-color: #fee5ca;
+  --secondary-color: #243447;
+  --tertiary-color: #fee5ca;
   --neutral-bg: #f3f3f3;
   --text-color: #333333;
   --secondary-accent: #1c1c1c;
@@ -11,7 +12,8 @@
 
 body.dark-mode {
   --primary-color: #1c1c1c;
-  --secondary-color: #e2c3a5;
+  --secondary-color: #1d2d3a;
+  --tertiary-color: #e2c3a5;
   --neutral-bg: #333333;
   --text-color: #ffffff;
   --secondary-accent: #444444;
@@ -21,7 +23,7 @@ body.dark-mode {
 
 #contact {
   background-color: var(--secondary-color);
-  color: var(--primary-color);
+  color: #fff;
   border-top-right-radius: 25px;
   border-top-left-radius: 25px;
   width: 100%;
@@ -55,6 +57,10 @@ body.dark-mode {
 }
 
 .social-icon {
+  filter: invert(100%) brightness(2);
+}
+
+.social-icon:hover {
   filter: invert(31%) sepia(100%) saturate(4300%) hue-rotate(346deg)
     brightness(90%) contrast(90%);
 }

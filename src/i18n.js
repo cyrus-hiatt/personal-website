@@ -16,6 +16,7 @@ i18n.use(initReactI18next).init({
         contactSecondary:
           "Let's get in touch! You can find me on LinkedIn, GitHub, or email me directly.",
         about: "About me",
+        my: "My",
         aboutDesc:
           "As a Front-end Engineer with a solid foundation in SEO and Digital Marketing, I bring a user-centered perspective to every project. I closely analyze audience needs and behaviors to inform my UX/UI design, ensuring each interaction is intuitive and engaging. From initial concept discussions with stakeholders to final design implementation, I focus on creating solutions that enhance user experience and align with strategic goals.",
         aboutDesc2:
@@ -34,6 +35,7 @@ i18n.use(initReactI18next).init({
         contactSecondary:
           "Lad os komme i kontakt! Du kan finde mig på LinkedIn, GitHub eller sende mig en e-mail direkte.",
         about: "Om mig",
+        my: "Min",
         aboutDesc:
           "As a Front-end Engineer with a solid foundation in SEO and Digital Marketing, I bring a user-centered perspective to every project. I closely analyze audience needs and behaviors to inform my UX/UI design, ensuring each interaction is intuitive and engaging. From initial concept discussions with stakeholders to final design implementation, I focus on creating solutions that enhance user experience and align with strategic goals.",
         aboutDesc2:

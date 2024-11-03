@@ -21,7 +21,7 @@ const Home = () => {
                 alt="LinkedIn Icon"
                 className="social-icon"
               />
-              My LinkedIn
+              {t("my")} LinkedIn
             </Button>
           </div>
           <img

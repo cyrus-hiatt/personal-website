@@ -1,6 +1,7 @@
 :root {
   --primary-color: #b00e2f;
-  --secondary-color: #fee5ca;
+  --secondary-color: #243447;
+  --tertiary-color: #fee5ca;
   --neutral-bg: #f3f3f3;
   --text-color: #333333;
   --secondary-accent: #1c1c1c;
@@ -11,7 +12,8 @@
 
 body.dark-mode {
   --primary-color: #1c1c1c;
-  --secondary-color: #fee5ca;
+  --secondary-color: #1d2d3a;
+  --tertiary-color: #e2c3a5;
   --neutral-bg: #333333;
   --text-color: #ffffff;
   --secondary-accent: #444444;
@@ -57,9 +59,10 @@ body {
   font-family: var(--font-family);
   color: #fff;
   background-color: var(--primary-color);
-  border-top: 4px solid var(--secondary-color);
+  border-top: 4px solid var(--tertiary-color);
   line-height: 1.6;
   padding: 0 5px;
+  transition: all 0.2s ease;
 }
 
 a {
