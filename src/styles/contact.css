@@ -1,0 +1,44 @@
+:root {
+  --primary-color: #b00e2f;
+  --secondary-color: #243447;
+  --tertiary-color: #fee5ca;
+  --neutral-bg: #f3f3f3;
+  --text-color: #333333;
+  --secondary-accent: #1c1c1c;
+  --highlight-accent: #ffa726;
+  --subtle-accent: #cccccc;
+  --font-family: "HelveticaNeueCyr", sans-serif;
+}
+
+body.dark-mode {
+  --primary-color: #1c1c1c;
+  --secondary-color: #1d2d3a;
+  --tertiary-color: #e2c3a5;
+  --neutral-bg: #333333;
+  --text-color: #ffffff;
+  --secondary-accent: #444444;
+  --highlight-accent: #ff7043;
+  --subtle-accent: #666666;
+}
+
+#contactPage {
+  padding: 60px;
+}
+
+#contactPage h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 60px;
+  font-weight: 900;
+  color: #fff;
+}
+
+form {
+  margin: 80px 0;
+}
+
+input,
+textarea {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+}

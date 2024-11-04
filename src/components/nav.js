@@ -22,6 +22,13 @@ function Nav() {
 
   return (
     <header>
+      <a href="/" target="">
+        <img
+          src={`${process.env.PUBLIC_URL}/images/logo.png`}
+          alt="logo"
+          className="logo"
+        />
+      </a>
       <div className="hamburger" onClick={toggleMenu}>
         <div className={`line ${isOpen ? "active" : ""}`}></div>
         <div className={`line ${isOpen ? "active" : ""}`}></div>
@@ -48,7 +55,7 @@ function Nav() {
               X
             </button>
           </li>
-          <div class="nav-container">
+          <div className="nav-container">
             <li>
               <Link to="/" onClick={toggleMenu}>
                 {t("home")}

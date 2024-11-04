@@ -7,25 +7,34 @@ const Footer = () => {
 
   return (
     <footer>
-      <section id="contact" class="section">
+      <section id="contact" className="section">
         <h2>{t("contactTitle")}</h2>
         <p>{t("contactSecondary")}</p>
         <ul>
           <li>
-            <a href="your-linkedin-profile" target="_blank">
+            <a href="https://www.linkedin.com/in/cyrus-hiatt/" target="_blank">
               <img
                 src={`${process.env.PUBLIC_URL}/images/linkedin-icon.svg`}
                 alt="LinkedIn Icon"
-                class="social-icon"
+                className="social-icon"
               />
             </a>
           </li>
           <li>
-            <a href="your-github-profile" target="_blank">
+            <a href="https://github.com/cyrus-hiatt" target="_blank">
               <img
                 src={`${process.env.PUBLIC_URL}/images/github-icon.svg`}
                 alt="Github Icon"
-                class="social-icon"
+                className="social-icon"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="https://codepen.io/cyrus-hiatt" target="_blank">
+              <img
+                src={`${process.env.PUBLIC_URL}/images/codepen-icon.svg`}
+                alt="Codepen Icon"
+                className="social-icon"
               />
             </a>
           </li>
@@ -34,7 +43,7 @@ const Footer = () => {
               <img
                 src={`${process.env.PUBLIC_URL}/images/email-icon.svg`}
                 alt="Mail Icon"
-                class="social-icon"
+                className="social-icon"
               />
             </a>
           </li>

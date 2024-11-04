@@ -48,6 +48,11 @@ body.dark-mode {
   border: none;
 }
 
+.dark-mode .button-red:hover {
+  background-color: var(--tertiary-color);
+  color: var(--primary-color);
+}
+
 .button-red:hover .social-icon {
   filter: invert(31%) sepia(100%) saturate(4300%) hue-rotate(346deg)
     brightness(90%) contrast(90%);

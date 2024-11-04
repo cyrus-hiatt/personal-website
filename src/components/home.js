@@ -15,14 +15,16 @@ const Home = () => {
           <div className="intro-text">
             <h1>{t("welcome")}</h1>
             <p>{t("description")}</p>
-            <Button className="button-red">
-              <img
-                src={`${process.env.PUBLIC_URL}/images/linkedin-icon.svg`}
-                alt="LinkedIn Icon"
-                className="social-icon"
-              />
-              {t("my")} LinkedIn
-            </Button>
+            <a href="https://www.linkedin.com/in/cyrus-hiatt/" target="_blank">
+              <Button className="button-red">
+                <img
+                  src={`${process.env.PUBLIC_URL}/images/linkedin-icon.svg`}
+                  alt="LinkedIn Icon"
+                  className="social-icon"
+                />
+                {t("my")} LinkedIn
+              </Button>
+            </a>
           </div>
           <img
             src={`${process.env.PUBLIC_URL}/images/copenhagen-background.jpg`}
