@@ -1,0 +1,24 @@
+.round-progress-circle {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  gap: 10px;
+}
+
+.percentage-label {
+  font-family: inherit;
+  position: absolute;
+  font-weight: 600;
+  font-size: 20px;
+  top: 37%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.language-label {
+  font-family: inherit;
+  font-weight: normal;
+  font-size: 14px;
+}

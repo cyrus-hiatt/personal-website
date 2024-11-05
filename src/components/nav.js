@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "../styles/nav.css";
@@ -6,22 +6,51 @@ import "../styles/nav.css";
 function Nav() {
   const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false); // New state for scroll
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prev) => !prev); // Toggle based on previous state
   };
 
   const changeLanguage = (lang) => {
     i18n.changeLanguage(lang);
     document.documentElement.lang = lang;
+    localStorage.setItem("language", lang);
     setIsOpen(false); // Close the menu when changing languages
   };
+
+  // Set the initial language on component mount
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("language") || "en"; // Default to 'en'
+    i18n.changeLanguage(savedLanguage);
+    document.documentElement.lang = savedLanguage; // Set the document language
+  }, [i18n]);
+
+  // Handle scroll event to set isScrolled state
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true); // Set to true when scrolled
+      } else {
+        setIsScrolled(false); // Set to false when at the top
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const isEnglish = i18n.language === "en";
   const isDanish = i18n.language === "da";
 
   return (
-    <header>
+    <header className={isScrolled ? "scrolled" : ""}>
+      {" "}
+      {/* Add class based on scroll state */}
       <a href="/" target="">
         <img
           src={`${process.env.PUBLIC_URL}/images/logo.png`}
@@ -79,8 +108,7 @@ function Nav() {
           </div>
         </ul>
       </nav>
-      {isOpen && <div className="overlay" onClick={toggleMenu}></div>}{" "}
-      {/* Overlay for menu */}
+      {isOpen && <div className="overlay" onClick={toggleMenu}></div>}
     </header>
   );
 }

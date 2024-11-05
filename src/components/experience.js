@@ -1,60 +1,68 @@
 // src/components/Experience.js
 import React from "react";
+import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet";
+import ProgressBar from "./progressbar";
+import RoundProgressCircle from "./roundprogresscircle"; // Import the new component
+import "../styles/experience.css";
 
 const Experience = () => {
+  const { t } = useTranslation();
+
+  // Define your technologies and their percentages
+  const experiences = [
+    { label: "CSS", percentage: 95 },
+    { label: "JavaScript", percentage: 90 },
+    { label: "Bootstrap", percentage: 80 },
+    { label: "JQuery", percentage: 70 },
+    { label: "React", percentage: 45 },
+    { label: "Adobe Photoshop", percentage: 35 },
+    { label: "Figma", percentage: 35 },
+    { label: "C#", percentage: 30 },
+    { label: "Git", percentage: 30 },
+  ];
+
+  // Define your languages and their percentages
+  const languages = [
+    { label: "English", percentage: 100 },
+    { label: "Danish", percentage: 70 },
+    { label: "Spanish", percentage: 65 },
+  ];
+
   return (
     <section id="experience" className="section">
+      <Helmet>
+        <title>{t("experience")} | Cyrus Hiatt</title>
+      </Helmet>
       <h2>My Experience</h2>
-
-      <div className="experience-item">
-        <h3>Front-End Engineer</h3>
-        <p>
-          <strong>April 2024 - Present | Copenhagen, Denmark | Hybrid</strong>
-        </p>
-        <p>
-          Leveraging JavaScript, Umbraco, and other technologies to deliver
-          high-quality front-end solutions.
-        </p>
-        <ul>
-          <li>Developing responsive and user-friendly web applications.</li>
-          <li>
-            Collaborating with cross-functional teams to enhance user
-            experience.
-          </li>
-          <li>
-            Utilizing modern JavaScript frameworks and best practices for
-            optimal performance.
-          </li>
-        </ul>
+      <div className="experience-container">
+        <div className="experience-column">
+          {experiences.slice(0, 5).map((exp, index) => (
+            <ProgressBar
+              key={index}
+              label={exp.label}
+              percentage={exp.percentage}
+            />
+          ))}
+        </div>
+        <div className="experience-column">
+          {experiences.slice(5).map((exp, index) => (
+            <ProgressBar
+              key={index + 5}
+              label={exp.label}
+              percentage={exp.percentage}
+            />
+          ))}
+        </div>
       </div>
-
-      <div className="experience-item">
-        <h3>Website Manager</h3>
-        <p>
-          <strong>January 2023 - April 2024 | Copenhagen, Denmark</strong>
-        </p>
-        <ul>
-          <li>
-            <strong>Website Optimization:</strong> Enhanced website performance,
-            SEO, and user engagement.
-          </li>
-          <li>
-            <strong>Supporting Content and Design Teams:</strong> Collaborated
-            to improve user experience.
-          </li>
-          <li>
-            <strong>Umbraco Training:</strong> Trained team members on best
-            practices.
-          </li>
-          <li>
-            <strong>Front-End Web Development:</strong> Ensured responsive
-            layouts across devices.
-          </li>
-          <li>
-            <strong>Backend Integration:</strong> Integrated design with backend
-            functionality.
-          </li>
-        </ul>
+      <div className="languages-container">
+        {languages.map((lang, index) => (
+          <RoundProgressCircle
+            key={index}
+            label={lang.label}
+            percentage={lang.percentage}
+          />
+        ))}
       </div>
     </section>
   );

@@ -4,12 +4,16 @@ import Button from "./button";
 import "../styles/button.css";
 import "../styles/home.css";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   const { t } = useTranslation();
 
   return (
     <section id="home" className="section">
+      <Helmet>
+        <title>{t("home")} | Cyrus Hiatt</title>
+      </Helmet>
       <div className="intro-container">
         <div className="intro-row">
           <div className="intro-text">
@@ -80,11 +84,27 @@ const Home = () => {
             </div>
             <div className="tech-item">
               <img
+                src={`${process.env.PUBLIC_URL}/images/c-sharp-logo.svg`}
+                alt="C# Icon"
+                className="tech-icon"
+              />
+              <span className="tech-text">C#</span>
+            </div>
+            <div className="tech-item">
+              <img
                 src={`${process.env.PUBLIC_URL}/images/js-icon.svg`}
                 alt="JavaScript Icon"
                 className="tech-icon"
               />
               <span className="tech-text">JavaScript</span>
+            </div>
+            <div className="tech-item">
+              <img
+                src={`${process.env.PUBLIC_URL}/images/jquery-icon.svg`}
+                alt="JQuery Icon"
+                className="tech-icon"
+              />
+              <span className="tech-text">JQuery</span>
             </div>
             <div className="tech-item">
               <img

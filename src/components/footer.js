@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer>
       <section id="contact" className="section">
-        <h2>{t("contactTitle")}</h2>
+        <h2>{t("connect")}</h2>
         <p>{t("contactSecondary")}</p>
         <ul>
           <li>

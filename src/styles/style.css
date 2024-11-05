@@ -5,9 +5,11 @@
   --neutral-bg: #f3f3f3;
   --text-color: #333333;
   --secondary-accent: #1c1c1c;
-  --highlight-accent: #ffa726;
+  --highlight-accent: #008080;
   --subtle-accent: #cccccc;
   --font-family: "HelveticaNeueCyr", sans-serif;
+  --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 body.dark-mode {
@@ -17,7 +19,7 @@ body.dark-mode {
   --neutral-bg: #333333;
   --text-color: #ffffff;
   --secondary-accent: #444444;
-  --highlight-accent: #ff7043;
+  --highlight-accent: #009688;
   --subtle-accent: #666666;
 }
 

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import "../styles/contact.css";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet";
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -12,6 +13,7 @@ const Contact = () => {
     message: "",
   });
   const [status, setStatus] = useState("");
+  const [focusedInput, setFocusedInput] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,6 +21,14 @@ const Contact = () => {
       ...prevData,
       [name]: value,
     }));
+  };
+
+  const handleFocus = (inputName) => {
+    setFocusedInput(inputName);
+  };
+
+  const handleBlur = () => {
+    setFocusedInput(""); // Clear focus state when input loses focus
   };
 
   const handleSubmit = (e) => {
@@ -43,17 +53,26 @@ const Contact = () => {
 
   return (
     <div id="contactPage">
+      <Helmet>
+        <title>{t("contact")} | Cyrus Hiatt</title>
+      </Helmet>
       <h1>{t("contactTitle")}</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-row-1">
           <label>
-            Name:
+            {t("name")}:
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
+              onFocus={() => handleFocus("name")}
+              onBlur={handleBlur}
               required
+              style={{
+                borderBottom:
+                  focusedInput === "name" ? "2px solid #fff" : "1px solid #fff",
+              }}
             />
           </label>
           <label>
@@ -63,34 +82,58 @@ const Contact = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
+              onFocus={() => handleFocus("email")}
+              onBlur={handleBlur}
               required
+              style={{
+                borderBottom:
+                  focusedInput === "email"
+                    ? "2px solid #fff"
+                    : "1px solid #fff",
+              }}
             />
           </label>
         </div>
         <div className="form-subject">
           <label>
-            Subject: {/* Added subject field */}
+            {t("subject")}:
             <input
               type="text"
               name="subject"
               value={formData.subject}
               onChange={handleChange}
+              onFocus={() => handleFocus("subject")}
+              onBlur={handleBlur}
               required
+              style={{
+                borderBottom:
+                  focusedInput === "subject"
+                    ? "2px solid #fff"
+                    : "1px solid #fff",
+              }}
             />
           </label>
         </div>
         <div className="form-message">
           <label>
-            Message:
+            {t("message")}:
             <textarea
               name="message"
               value={formData.message}
               onChange={handleChange}
+              onFocus={() => handleFocus("message")}
+              onBlur={handleBlur}
               required
+              style={{
+                borderBottom:
+                  focusedInput === "message"
+                    ? "2px solid #fff"
+                    : "1px solid #fff",
+              }}
             />
           </label>
         </div>
-        <button type="submit" className="form-button">
+        <button type="submit" className="button-red">
           Send
         </button>
         <p>{status}</p>
