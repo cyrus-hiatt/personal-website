@@ -227,6 +227,10 @@
     left: -7px;
   }
 
+  .dark-mode .timeline h3 {
+    color: #fff;
+  }
+
   .timeline h3 {
     font-size: 1.1em;
     color: var(--primary-color);
