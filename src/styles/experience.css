@@ -186,6 +186,10 @@
 }
 
 @media (max-width: 768px) {
+  #experience h2 {
+    font-size: 30px;
+    margin-bottom: 40px;
+  }
   .experience-container {
     padding: 30px;
   }
