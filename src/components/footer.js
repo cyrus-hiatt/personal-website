@@ -30,15 +30,6 @@ const Footer = () => {
             </a>
           </li>
           <li>
-            <a href="https://codepen.io/cyrus-hiatt" target="_blank">
-              <img
-                src={`${process.env.PUBLIC_URL}/images/codepen-icon.svg`}
-                alt="Codepen Icon"
-                className="social-icon"
-              />
-            </a>
-          </li>
-          <li>
             <a href="mailto:cehiatt87@gmail.com">
               <img
                 src={`${process.env.PUBLIC_URL}/images/email-icon.svg`}

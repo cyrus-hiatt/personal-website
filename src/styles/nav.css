@@ -48,13 +48,13 @@ header.scrolled {
 
 .line {
   height: 3px;
-  background-color: var(--secondary-color);
+  background-color: var(--tertiary-color);
   margin: 3px 0;
   transition: all 1s ease;
 }
 
 .dark-mode .line {
-  background-color: #fff;
+  background-color: var(--tertiary-color);
 }
 
 .nav-menu {

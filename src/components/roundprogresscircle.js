@@ -1,4 +1,3 @@
-// src/components/RoundProgressCircle.js
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/roundprogresscircle.css";
 
@@ -11,6 +10,7 @@ const RoundProgressCircle = ({ percentage, label }) => {
 
   const circleRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [displayedPercentage, setDisplayedPercentage] = useState(0); // State for animated percentage
 
   // Intersection Observer to trigger animation when in view
   useEffect(() => {
@@ -35,6 +35,23 @@ const RoundProgressCircle = ({ percentage, label }) => {
     };
   }, []);
 
+  // Animate the displayed percentage when isVisible becomes true
+  useEffect(() => {
+    if (isVisible && displayedPercentage < percentage) {
+      const interval = setInterval(() => {
+        setDisplayedPercentage((prev) => {
+          if (prev >= percentage) {
+            clearInterval(interval);
+            return percentage;
+          }
+          return prev + 1; // Increment by 1, adjust as needed
+        });
+      }, 10); // Adjust speed by changing interval duration
+
+      return () => clearInterval(interval);
+    }
+  }, [isVisible, displayedPercentage, percentage]);
+
   return (
     <div className="round-progress-circle" ref={circleRef}>
       <svg height={radius * 2} width={radius * 2}>
@@ -47,7 +64,7 @@ const RoundProgressCircle = ({ percentage, label }) => {
           cy={radius}
         />
         <circle
-          stroke="var(--highlight-accent)" // Use the new highlight accent color
+          stroke="var(--primary-color)" // Use the new highlight accent color
           fill="transparent"
           strokeWidth={strokeWidth}
           r={normalizedRadius}
@@ -60,7 +77,7 @@ const RoundProgressCircle = ({ percentage, label }) => {
           }} // Smooth animation
         />
       </svg>
-      <div className="percentage-label">{percentage}%</div>
+      <div className="percentage-label">{displayedPercentage}%</div>
       <div className="language-label">{label}</div>
     </div>
   );

@@ -21,30 +21,21 @@
   overflow: hidden;
   height: 20px;
   width: 100%;
-  max-width: 400px;
+  /* max-width: 400px; */
   box-shadow: var(--box-shadow);
 }
 
 .progress-fill {
-  background-color: var(--highlight-accent);
+  background-color: var(--primary-color);
   height: 100%;
   width: 0;
   transition: width 5s ease-in-out;
 }
 
-.experience-container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.experience-column {
-  width: 48%;
-}
-
 body.dark-mode .progress-bar {
-  background-color: var(--subtle-accent);
+  background-color: var(--tertiary-color);
 }
 
 body.dark-mode .progress-fill {
-  background-color: var(--highlight-accent);
+  background-color: var(--primary-color);
 }

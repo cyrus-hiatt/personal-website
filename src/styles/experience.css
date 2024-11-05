@@ -1,5 +1,5 @@
 #experience {
-  padding: 60px;
+  /* padding: 60px; */
 }
 
 #experience h2 {
@@ -10,14 +10,243 @@
   margin-bottom: 80px;
 }
 
+.experience-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--secondary-color);
+  padding: 60px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.experience-column {
+  width: 48%;
+}
+
 .languages-container {
   display: flex;
   justify-content: space-around;
-  margin-top: 80px;
+  flex-wrap: wrap;
+  background-color: var(--secondary-color);
+  padding: 0 60px 60px 60px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  box-shadow: var(--box-shadow);
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 60px;
+  margin-bottom: 80px;
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px;
+}
+
+.timeline-item.left {
+  align-self: flex-start;
+  text-align: right;
+}
+
+.timeline-item.right {
+  align-self: flex-end;
+  text-align: left;
+}
+
+.timeline-marker {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  top: 20px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark-mode .timeline-marker {
+  background-color: var(--tertiary-color);
+}
+
+.timeline-item.left .timeline-marker {
+  right: -6px;
+}
+
+.timeline-item.right .timeline-marker {
+  left: -6px;
+}
+
+.timeline-item:hover .timeline-marker,
+.timeline-marker:hover {
+  transform: scale(1.3);
+  cursor: pointer;
+}
+
+.timeline-content {
+  background-color: rgba(243, 243, 243, 0.4);
+  padding: 10px 15px;
+  transition: all 0.5s ease;
+}
+
+.latest .timeline-content {
+  background-color: var(--neutral-bg);
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  padding: 10px 15px;
+  transition: all 0.5s ease;
+}
+
+.left .timeline-content {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.right .timeline-content {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.timeline-item:hover .timeline-content,
+.timeline-marker:hover + .timeline-content,
+.timeline-content:hover {
+  background-color: var(--neutral-bg);
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+}
+
+.timeline-content.hovered {
+  background-color: var(--neutral-bg);
+  transition: all 0.5s ease;
+}
+
+.timeline-content.hovered h3 {
+  color: var(--primary-color);
+}
+
+.latest.hovered .timeline-content {
+  background-color: var(--neutral-bg);
+}
+.dark-mode .timeline-item:hover h3,
+.timeline-marker:hover + .timeline-content h3,
+.timeline-content:hover h3 {
+  color: #fff;
+}
+
+.dark-mode .timeline-content.hovered h3 {
+  color: #fff;
+}
+
+.timeline-item:hover h3,
+.timeline-marker:hover + .timeline-content h3,
+.timeline-content:hover h3 {
+  color: var(--primary-color);
+}
+
+.timeline h3 {
+  font-size: 1.2em;
+  color: var(--text-color);
+}
+
+.timeline h4 {
+  font-size: 1em;
+  color: var(--text-color);
+  font-weight: 600;
+  margin: 0;
+}
+
+.timeline span {
+  display: block;
+  font-size: 0.9em;
+  color: var(--text-color);
+  margin-bottom: 5px;
+}
+
+.timeline p {
+  margin: 0;
+  font-size: 0.9em;
+  color: var(--text-color);
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  background-color: var(--tertiary-color);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
 }
 
 @media (max-width: 768px) {
-  #experience {
+  .experience-container {
     padding: 30px;
+  }
+
+  .languages-container {
+    padding: 0 30px 30px 30px;
+  }
+
+  .timeline-content {
+    background-color: var(--neutral-bg);
+  }
+
+  .timeline {
+    padding: 30px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .timeline-item.left,
+  .timeline-item.right {
+    align-self: flex-start;
+    text-align: left;
+  }
+
+  .timeline-marker {
+    width: 10px;
+    height: 10px;
+  }
+
+  .timeline-item.left .timeline-marker {
+    right: 0;
+    left: -7px;
+  }
+
+  .timeline h3 {
+    font-size: 1.1em;
+    color: var(--primary-color);
+  }
+
+  .timeline h4 {
+    font-size: 0.9em;
+  }
+
+  .timeline span {
+    font-size: 0.8em;
+  }
+
+  .timeline p {
+    font-size: 0.8em;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    background-color: var(--tertiary-color);
+    top: 0;
+    bottom: 0;
+    left: 5%;
+    z-index: 0;
   }
 }
