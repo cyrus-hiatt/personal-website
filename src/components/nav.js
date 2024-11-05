@@ -1,44 +1,45 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "../styles/nav.css";
 
 function Nav() {
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false); // New state for scroll
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen((prev) => !prev); // Toggle based on previous state
+    setIsOpen((prev) => !prev);
   };
 
   const changeLanguage = (lang) => {
     i18n.changeLanguage(lang);
     document.documentElement.lang = lang;
     localStorage.setItem("language", lang);
+
+    // Update the URL based on the selected language
+    navigate(lang === "da" ? "/da" : "/en");
     setIsOpen(false); // Close the menu when changing languages
   };
 
-  // Set the initial language on component mount
   useEffect(() => {
-    const savedLanguage = localStorage.getItem("language") || "en"; // Default to 'en'
+    const savedLanguage = localStorage.getItem("language") || "en";
     i18n.changeLanguage(savedLanguage);
-    document.documentElement.lang = savedLanguage; // Set the document language
-  }, [i18n]);
+    document.documentElement.lang = savedLanguage;
 
-  // Handle scroll event to set isScrolled state
+    // Check if we need to navigate only if we are not on the correct page
+    if (window.location.pathname === "/") {
+      navigate(savedLanguage === "da" ? "/da" : "/en");
+    }
+  }, [i18n, navigate]);
+
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsScrolled(true); // Set to true when scrolled
-      } else {
-        setIsScrolled(false); // Set to false when at the top
-      }
+      setIsScrolled(window.scrollY > 0);
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -49,8 +50,6 @@ function Nav() {
 
   return (
     <header className={isScrolled ? "scrolled" : ""}>
-      {" "}
-      {/* Add class based on scroll state */}
       <a href="/" target="">
         <img
           src={`${process.env.PUBLIC_URL}/images/logo.png`}
@@ -86,22 +85,31 @@ function Nav() {
           </li>
           <div className="nav-container">
             <li>
-              <Link to="/" onClick={toggleMenu}>
+              <Link to={isEnglish ? "/en" : "/da"} onClick={toggleMenu}>
                 {t("home")}
               </Link>
             </li>
             <li>
-              <Link to="/projects" onClick={toggleMenu}>
+              <Link
+                to={isEnglish ? "/en/projects" : "/da/projekter"}
+                onClick={toggleMenu}
+              >
                 {t("projects")}
               </Link>
             </li>
             <li>
-              <Link to="/experience" onClick={toggleMenu}>
+              <Link
+                to={isEnglish ? "/en/experience" : "/da/erfaring"}
+                onClick={toggleMenu}
+              >
                 {t("experience")}
               </Link>
             </li>
             <li>
-              <Link to="/contact" onClick={toggleMenu}>
+              <Link
+                to={isEnglish ? "/en/contact" : "/da/kontakt"}
+                onClick={toggleMenu}
+              >
                 {t("contact")}
               </Link>
             </li>
