@@ -5,15 +5,18 @@ import App from "./App";
 import { I18nextProvider } from "react-i18next";
 import i18n from "./i18n";
 import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter as Router } from "react-router-dom";
 
 // Create the root element
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-// Render the App wrapped in I18nextProvider
+// Render the App wrapped in both I18nextProvider and BrowserRouter
 root.render(
   <React.StrictMode>
     <I18nextProvider i18n={i18n}>
-      <App />
+      <Router>
+        <App />
+      </Router>
     </I18nextProvider>
   </React.StrictMode>
 );

@@ -1,11 +1,11 @@
 import "./styles/style.css";
 import "./styles/fonts.css";
-import React from "react";
+import React, { useEffect } from "react";
 import {
-  BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
+  useLocation, // Hook to track location changes
 } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18n from "./i18n";
@@ -19,32 +19,47 @@ import ThemeToggle from "./components/themetoggle";
 
 function App() {
   const { t } = useTranslation();
+  const location = useLocation(); // Track location changes
+  const { i18n } = useTranslation(); // Access the i18n instance
 
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
+  // Function to set language based on the current route
+  const setLanguageFromPath = (path) => {
+    const lang = path.includes("/en")
+      ? "en"
+      : path.includes("/da")
+      ? "da"
+      : "en";
+    i18n.changeLanguage(lang);
   };
 
+  useEffect(() => {
+    // Change the language whenever the path changes
+    setLanguageFromPath(location.pathname);
+    document.documentElement.lang = i18n.language;
+  }, [location.pathname, i18n]); // This will trigger on every route change
+
   return (
-    <Router>
-      <div className="app-container">
-        <Nav changeLanguage={changeLanguage} />
-        <div className="content">
-          <Routes>
-            <Route path="/" element={<Navigate to="/en" />} />{" "}
-            <Route path="/en" element={<Home />} />
-            <Route path="/en/projects" element={<Projects />} />
-            <Route path="/en/experience" element={<Experience />} />
-            <Route path="/en/contact" element={<Contact />} />
-            <Route path="/da" element={<Home />} />
-            <Route path="/da/projekter" element={<Projects />} />
-            <Route path="/da/erfaring" element={<Experience />} />
-            <Route path="/da/kontakt" element={<Contact />} />
-          </Routes>
-        </div>
-        <ThemeToggle />
-        <Footer />
+    <div className="app-container">
+      <Nav />
+      <div className="content">
+        <Routes>
+          {/* Redirect to /en if the root path is visited */}
+          <Route path="/" element={<Navigate to="/en" />} />
+          {/* For /en path */}
+          <Route path="/en" element={<Home language="en" />} />
+          <Route path="/en/projects" element={<Projects />} />
+          <Route path="/en/experience" element={<Experience />} />
+          <Route path="/en/contact" element={<Contact />} />
+          {/* For /da path */}
+          <Route path="/da" element={<Home language="da" />} />
+          <Route path="/da/projekter" element={<Projects />} />
+          <Route path="/da/erfaring" element={<Experience />} />
+          <Route path="/da/kontakt" element={<Contact />} />
+        </Routes>
       </div>
-    </Router>
+      <ThemeToggle />
+      <Footer />
+    </div>
   );
 }
 

@@ -50,13 +50,13 @@ function Nav() {
 
   return (
     <header className={isScrolled ? "scrolled" : ""}>
-      <a href="/" target="">
+      <Link to={isEnglish ? "/en" : "/da"}>
         <img
           src={`${process.env.PUBLIC_URL}/images/logo.png`}
           alt="logo"
           className="logo"
         />
-      </a>
+      </Link>
       <div className="hamburger" onClick={toggleMenu}>
         <div className={`line ${isOpen ? "active" : ""}`}></div>
         <div className={`line ${isOpen ? "active" : ""}`}></div>
