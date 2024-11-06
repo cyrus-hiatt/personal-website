@@ -1,6 +1,9 @@
 .notfound-container {
-  text-align: center;
   padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .notfound-container h1 {
