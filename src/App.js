@@ -16,6 +16,7 @@ import Experience from "./components/experience";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
 import ThemeToggle from "./components/themetoggle";
+import NotFound from "./components/notfound";
 
 function App() {
   const { t } = useTranslation();
@@ -55,6 +56,7 @@ function App() {
           <Route path="/da/projekter" element={<Projects />} />
           <Route path="/da/erfaring" element={<Experience />} />
           <Route path="/da/kontakt" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
       <ThemeToggle />
