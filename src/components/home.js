@@ -1,6 +1,7 @@
 // src/components/Home.js
 import React from "react";
 import Button from "./button";
+import LazyImage from "./lazyimage";
 import "../styles/button.css";
 import "../styles/home.css";
 import { useTranslation } from "react-i18next";
@@ -58,7 +59,7 @@ const Home = () => {
         <h2>{t("about")}</h2>
         <div className="about-container">
           <div className="about-row">
-            <img
+            <LazyImage
               src={`${process.env.PUBLIC_URL}/images/profile-picture.jpg`}
               alt="Cyrus Hiatt"
               className="profile-pic"
@@ -75,7 +76,7 @@ const Home = () => {
         <div className="tech-container">
           <div className="tech-row">
             <div className="tech-item">
-              <img
+              <LazyImage
                 src={`${process.env.PUBLIC_URL}/images/react-icon.svg`}
                 alt="React Icon"
                 className="tech-icon"
@@ -83,7 +84,7 @@ const Home = () => {
               <span className="tech-text">React/js</span>
             </div>
             <div className="tech-item">
-              <img
+              <LazyImage
                 src={`${process.env.PUBLIC_URL}/images/c-sharp-logo.svg`}
                 alt="C# Icon"
                 className="tech-icon"
@@ -91,7 +92,7 @@ const Home = () => {
               <span className="tech-text">C#</span>
             </div>
             <div className="tech-item">
-              <img
+              <LazyImage
                 src={`${process.env.PUBLIC_URL}/images/js-icon.svg`}
                 alt="JavaScript Icon"
                 className="tech-icon"
@@ -99,7 +100,7 @@ const Home = () => {
               <span className="tech-text">JavaScript</span>
             </div>
             <div className="tech-item">
-              <img
+              <LazyImage
                 src={`${process.env.PUBLIC_URL}/images/jquery-icon.svg`}
                 alt="JQuery Icon"
                 className="tech-icon"
@@ -107,7 +108,7 @@ const Home = () => {
               <span className="tech-text">JQuery</span>
             </div>
             <div className="tech-item">
-              <img
+              <LazyImage
                 src={`${process.env.PUBLIC_URL}/images/css-icon.svg`}
                 alt="CSS Icon"
                 className="tech-icon"
@@ -115,7 +116,7 @@ const Home = () => {
               <span className="tech-text">CSS</span>
             </div>
             <div className="tech-item">
-              <img
+              <LazyImage
                 src={`${process.env.PUBLIC_URL}/images/bootstrap-logo.svg`}
                 alt="Bootstrap Icon"
                 className="tech-icon"
@@ -123,7 +124,7 @@ const Home = () => {
               <span className="tech-text">Bootstrap</span>
             </div>
             <div className="tech-item">
-              <img
+              <LazyImage
                 src={`${process.env.PUBLIC_URL}/images/git-icon.svg`}
                 alt="Git Icon"
                 className="tech-icon"
@@ -136,7 +137,7 @@ const Home = () => {
         <div className="tech-container">
           <div className="tech-row">
             <div className="tech-item">
-              <img
+              <LazyImage
                 src={`${process.env.PUBLIC_URL}/images/photoshop-logo.svg`}
                 alt="React Icon"
                 className="tech-icon"
@@ -144,7 +145,7 @@ const Home = () => {
               <span className="tech-text">Adobe Photoshop</span>
             </div>
             <div className="tech-item">
-              <img
+              <LazyImage
                 src={`${process.env.PUBLIC_URL}/images/figma-logo.svg`}
                 alt="JavaScript Icon"
                 className="tech-icon"

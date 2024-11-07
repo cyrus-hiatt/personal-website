@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import "../styles/footer.css";
+import LazyImage from "./lazyimage";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -13,7 +14,7 @@ const Footer = () => {
         <ul>
           <li>
             <a href="https://www.linkedin.com/in/cyrus-hiatt/" target="_blank">
-              <img
+              <LazyImage
                 src={`${process.env.PUBLIC_URL}/images/linkedin-icon.svg`}
                 alt="LinkedIn Icon"
                 className="social-icon"
@@ -22,7 +23,7 @@ const Footer = () => {
           </li>
           <li>
             <a href="https://github.com/cyrus-hiatt" target="_blank">
-              <img
+              <LazyImage
                 src={`${process.env.PUBLIC_URL}/images/github-icon.svg`}
                 alt="Github Icon"
                 className="social-icon"
@@ -31,7 +32,7 @@ const Footer = () => {
           </li>
           <li>
             <a href="mailto:cehiatt87@gmail.com">
-              <img
+              <LazyImage
                 src={`${process.env.PUBLIC_URL}/images/email-icon.svg`}
                 alt="Mail Icon"
                 className="social-icon"

@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import "../styles/notfound.css";
 
 function NotFound() {
-  const { i18n } = useTranslation(); // Use i18n from useTranslation hook
+  const { i18n } = useTranslation(); 
   const isEnglish = i18n.language === "en";
 
   return (

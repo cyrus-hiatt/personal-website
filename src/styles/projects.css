@@ -1,0 +1,42 @@
+#projects {
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#projects h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 80px;
+  font-weight: 900;
+  color: #fff;
+}
+
+#projects  h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 60px;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 80px;
+}
+
+.error-animation {
+  max-width: 400px;
+  margin-top: -125px;
+}
+
+@media (max-width: 768px) {
+  #projects h1 {
+    font-size: 40px;
+  }
+
+  #projects h2 {
+    font-size: 30px;
+    margin-bottom: 40px;
+  }
+  
+  #projects {
+      padding: 30px;
+  }
+  }

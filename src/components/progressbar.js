@@ -11,7 +11,7 @@ const ProgressBar = ({ percentage, label }) => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.unobserve(barRef.current); // Stop observing after it becomes visible
+          observer.unobserve(barRef.current); 
         }
       },
       { threshold: 0.1 }
@@ -30,7 +30,7 @@ const ProgressBar = ({ percentage, label }) => {
 
   useEffect(() => {
     if (barRef.current && isVisible) {
-      barRef.current.style.width = "100%"; // Ensure the container is full width
+      barRef.current.style.width = "100%"; 
     }
   }, [isVisible]);
 
@@ -41,8 +41,8 @@ const ProgressBar = ({ percentage, label }) => {
         <div
           className="progress-fill"
           style={{
-            width: isVisible ? `${percentage}%` : "0%", // Only fill when visible
-            transition: isVisible ? "width 1s ease-in-out" : "none", // Smooth animation
+            width: isVisible ? `${percentage}%` : "0%", 
+            transition: isVisible ? "width 1s ease-in-out" : "none", 
           }}
         ></div>
       </div>
